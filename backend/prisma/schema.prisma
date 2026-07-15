@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+enum InvestmentType {
+  STOCK
+  MUTUAL_FUND
+  ETF
+  GOLD
+  CRYPTO
+  BOND
+}
+
+model User {
+  id          String       @id @default(uuid())
+  name        String
+  email       String       @unique
+  password    String
+
+  investments Investment[]
+
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@map("users")
+}
+
+model Investment {
+  id               String          @id @default(uuid())
+
+  investmentName   String
+  investmentType   InvestmentType
+
+  investedAmount   Float
+  currentValue     Float
+
+  purchaseDate     DateTime
+
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+
+  userId           String
+  user             User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("investments")
+}
