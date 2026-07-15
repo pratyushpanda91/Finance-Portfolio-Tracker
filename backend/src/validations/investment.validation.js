@@ -12,7 +12,7 @@ export const createInvestmentSchema = z.object({
         "ETF",
         "GOLD",
         "CRYPTO",
-        "BOND"
+        "BOND",
     ]),
 
     investedAmount: z
@@ -25,5 +25,7 @@ export const createInvestmentSchema = z.object({
 
     purchaseDate: z
         .string()
-        .datetime("Invalid purchase date.")
+        .datetime("Invalid purchase date."),
 });
+
+export const updateInvestmentSchema = createInvestmentSchema;
