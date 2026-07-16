@@ -1,0 +1,650 @@
+{
+  "info": {
+    "_postman_id": "a2476870-0a0e-445d-abe1-9a41e79301d1",
+    "name": "Finance-Tracking-API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43268806"
+  },
+  "item": [
+    {
+      "name": "Investments",
+      "item": [
+        {
+          "name": "update investment by ID",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0MWE2ODgwLWM2NzEtNGM3Mi1hYjg5LWQ0MjVmOGEyY2Y0OCIsImlhdCI6MTc4NDEzODc4NiwiZXhwIjoxNzg0MjI1MTg2fQ.i5hgo0PLh3fppwJez2y00wIrZon4JpiSH8hvTZ8O9hc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"investmentName\": \"Apple Inc. Updated\",\r\n    \"investmentType\": \"STOCK\",\r\n    \"investedAmount\": 60000,\r\n    \"currentValue\": 68000,\r\n    \"purchaseDate\": \"2025-01-15T00:00:00.000Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/investments/6f8dfc88-fee8-478e-a5c7-9465958afe8a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "investments",
+                "6f8dfc88-fee8-478e-a5c7-9465958afe8a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "test search & filter",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0MWE2ODgwLWM2NzEtNGM3Mi1hYjg5LWQ0MjVmOGEyY2Y0OCIsImlhdCI6MTc4NDEzODc4NiwiZXhwIjoxNzg0MjI1MTg2fQ.i5hgo0PLh3fppwJez2y00wIrZon4JpiSH8hvTZ8O9hc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/investments?search=Apple",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "investments"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "Apple"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "investments test",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0MWE2ODgwLWM2NzEtNGM3Mi1hYjg5LWQ0MjVmOGEyY2Y0OCIsImlhdCI6MTc4NDEzODc4NiwiZXhwIjoxNzg0MjI1MTg2fQ.i5hgo0PLh3fppwJez2y00wIrZon4JpiSH8hvTZ8O9hc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"investmentName\": \"Apple Inc.\",\r\n    \"investmentType\": \"STOCK\",\r\n    \"investedAmount\": 50000,\r\n    \"currentValue\": 55000,\r\n    \"purchaseDate\": \"2025-01-15T00:00:00.000Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/investments",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "investments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get investments",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0MWE2ODgwLWM2NzEtNGM3Mi1hYjg5LWQ0MjVmOGEyY2Y0OCIsImlhdCI6MTc4NDEzODc4NiwiZXhwIjoxNzg0MjI1MTg2fQ.i5hgo0PLh3fppwJez2y00wIrZon4JpiSH8hvTZ8O9hc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/investments",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "investments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "test filter",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0MWE2ODgwLWM2NzEtNGM3Mi1hYjg5LWQ0MjVmOGEyY2Y0OCIsImlhdCI6MTc4NDEzODc4NiwiZXhwIjoxNzg0MjI1MTg2fQ.i5hgo0PLh3fppwJez2y00wIrZon4JpiSH8hvTZ8O9hc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/investments?type=STOCK",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "investments"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "STOCK"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "test search",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0MWE2ODgwLWM2NzEtNGM3Mi1hYjg5LWQ0MjVmOGEyY2Y0OCIsImlhdCI6MTc4NDEzODc4NiwiZXhwIjoxNzg0MjI1MTg2fQ.i5hgo0PLh3fppwJez2y00wIrZon4JpiSH8hvTZ8O9hc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/investments?search=Apple",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "investments"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "Apple"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get investment by ID",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0MWE2ODgwLWM2NzEtNGM3Mi1hYjg5LWQ0MjVmOGEyY2Y0OCIsImlhdCI6MTc4NDEzODc4NiwiZXhwIjoxNzg0MjI1MTg2fQ.i5hgo0PLh3fppwJez2y00wIrZon4JpiSH8hvTZ8O9hc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/investments/6f8dfc88-fee8-478e-a5c7-9465958afe8a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "investments",
+                "6f8dfc88-fee8-478e-a5c7-9465958afe8a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "test pagination",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0MWE2ODgwLWM2NzEtNGM3Mi1hYjg5LWQ0MjVmOGEyY2Y0OCIsImlhdCI6MTc4NDEzODc4NiwiZXhwIjoxNzg0MjI1MTg2fQ.i5hgo0PLh3fppwJez2y00wIrZon4JpiSH8hvTZ8O9hc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/investments?page=1&limit=3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "investments"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete investment by ID",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0MWE2ODgwLWM2NzEtNGM3Mi1hYjg5LWQ0MjVmOGEyY2Y0OCIsImlhdCI6MTc4NDEzODc4NiwiZXhwIjoxNzg0MjI1MTg2fQ.i5hgo0PLh3fppwJez2y00wIrZon4JpiSH8hvTZ8O9hc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/investments/6f8dfc88-fee8-478e-a5c7-9465958afe8a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "investments",
+                "6f8dfc88-fee8-478e-a5c7-9465958afe8a"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Pratyush Panda\",\r\n    \"email\": \"pratyush@gmail.com\",\r\n    \"password\": \"password123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"pratyush@gmail.com\",\r\n    \"password\": \"wrongpassword\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "protected access through token",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0MWE2ODgwLWM2NzEtNGM3Mi1hYjg5LWQ0MjVmOGEyY2Y0OCIsImlhdCI6MTc4NDEzODc4NiwiZXhwIjoxNzg0MjI1MTg2fQ.i5hgo0PLh3fppwJez2y00wIrZon4JpiSH8hvTZ8O9hc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/protected",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "v1",
+            "protected"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get summary",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0MWE2ODgwLWM2NzEtNGM3Mi1hYjg5LWQ0MjVmOGEyY2Y0OCIsImlhdCI6MTc4NDEzODc4NiwiZXhwIjoxNzg0MjI1MTg2fQ.i5hgo0PLh3fppwJez2y00wIrZon4JpiSH8hvTZ8O9hc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/protected",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "v1",
+            "protected"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
