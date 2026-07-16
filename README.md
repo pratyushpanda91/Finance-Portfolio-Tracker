@@ -432,9 +432,6 @@ Password
 
 **Pratyush Panda**
 
-B.Tech Computer Science Engineering
-
-Veer Surendra Sai University of Technology (VSSUT)
 
 GitHub
 
