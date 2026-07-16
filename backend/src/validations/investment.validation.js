@@ -26,6 +26,15 @@ export const createInvestmentSchema = z.object({
     purchaseDate: z
         .string()
         .datetime("Invalid purchase date."),
+
+    purchaseDate: z
+        .string()
+        .refine(
+            (value) => !Number.isNaN(Date.parse(value)),
+            {
+                message: "Invalid purchase date.",
+            }
+    ),
 });
 
 export const updateInvestmentSchema = createInvestmentSchema;
