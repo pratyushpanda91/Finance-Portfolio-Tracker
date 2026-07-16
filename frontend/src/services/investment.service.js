@@ -1,7 +1,18 @@
 import api from "./api";
 
-export const getInvestments = async (params = {}) => {
-    const response = await api.get("/investments", { params });
+export const getInvestments = async ({
+    page = 1,
+    limit = 5,
+    search = "",
+} = {}) => {
+    const response = await api.get("/investments", {
+        params: {
+            page,
+            limit,
+            search,
+        },
+    });
+
     return response.data;
 };
 
